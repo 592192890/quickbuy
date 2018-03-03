@@ -1,0 +1,6 @@
+<!--pages/pay-success/pay-success.wxml-->
+<import src="/template/identify-code.wxml"/>
+<view class="container">
+    <template is="identifyCode" data="{{processName:'付款成功',orderId:orderId,identifyCode:identifyCode}}"></template>
+    
+</view>

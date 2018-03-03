@@ -1,0 +1,95 @@
+/* pages/pay-success/pay-success.wxss */
+page{
+    background-color:#f6f6f6;
+}
+.header{
+    margin-top:20rpx;
+    text-align:center;
+    background-color:#ffffff;
+}
+.header .img{
+    padding:40rpx 0 30rpx 0;
+}
+.header .img:after{
+    content:'\e617';
+    color:#55c788;
+    font-size:80rpx;
+}
+.header .result{
+    font-size:32rpx;
+    /*font-weight:bold;*/
+    color:#333333;
+}
+.header .tip{
+    font-size:28rpx;
+    margin:20rpx 50rpx 0 50rpx;
+    padding-bottom:40rpx;
+    line-height:38rpx;
+    color:#666666;
+}
+.header .tip .red{
+    color:#f95d5b;
+}
+
+.dottedLine{
+    width:100%;
+    height:32rpx;
+    overflow:hidden;
+    background-color:#ffffff;
+}
+
+.dottedLine .left{
+    float:left;
+    width:15rpx;
+    border-radius: 0 30rpx 30rpx 0;  
+    height: 30rpx;
+    background-color:#eeeeee;
+}
+
+.dottedLine .dotted{
+    float:left;
+    width:704rpx;
+    margin-left:9rpx;
+    height:14rpx;
+    border-bottom:2rpx dashed #eeeeee;
+}
+
+.dottedLine .right{
+    float:right;
+    width:15rpx;
+    border-radius:30rpx 0 0 30rpx;  
+    height:30rpx;
+    background-color:#eeeeee;
+}
+
+.identify-code{
+    padding-top:80rpx;
+    background-color:#ffffff;
+    text-align:center;
+}
+.identify-code .img-name{
+    margin-top:20rpx;
+    font-size:26rpx;
+    letter-spacing:24rpx;
+    color:#333333;
+}
+.identify-code .tip{
+    margin-top:120rpx;
+    font-size:28rpx;
+    padding-bottom:34rpx;
+    color:#666666;
+}
+.footer{
+    position:fixed;
+    bottom:20rpx;
+    left:20rpx;
+    right:20rpx;
+}
+.footer view{
+    background-color:#fede5b;
+    font-size:32rpx;
+    text-align:center;
+    border-radius:8rpx;
+    height:88rpx;
+    line-height:88rpx;
+}

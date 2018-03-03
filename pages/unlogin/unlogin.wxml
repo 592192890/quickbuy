@@ -1,0 +1,22 @@
+<!--pages/unlogin/unlogin.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="info">
+            <view class="item img">
+                <image src="/images/unlogin.png"></image>
+            </view>
+            <view class="item">
+                <view class='btn' bindtap="goIndex">登录/注册</view>
+            </view>
+            
+        </view>
+        
+    </view>
+    
+    <view class="list-item" bindtap="goHelpCenter">
+        <view class="inner">
+            <view class="label">帮助中心</view>
+            <view class="img iconfont"></view>
+        </view>
+    </view>
+</view>

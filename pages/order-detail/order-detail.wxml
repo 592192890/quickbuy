@@ -1,0 +1,151 @@
+<!--pages/order-detail/order-detail.wxml-->
+<view class="container">
+  <view class="header-line"></view>
+  <view class="header">
+    <view class="item title">订单状态：</view>
+    <view class="item status {{orderItem.orderStatus=='paying'?'show':''}}">查询中</view>
+    <view class="item status {{orderItem.orderStatus=='canceling'?'show':''}}">退款中</view>
+    <view class="item status {{orderItem.orderStatus=='refunding'?'show':''}}">退款中</view>
+    <view class="item status {{orderItem.orderType==0&&orderItem.orderStatus=='finish'?'show':''}}">交易完成</view>
+    <view class="item status {{orderItem.orderType==1&&orderItem.orderStatus=='finish'&&!canDelete?'show':''}}">鲜食演义待收货</view>
+    <view class="item status {{orderItem.orderType==1&&orderItem.orderStatus=='finish'&&canDelete?'show':''}}">交易完成</view>
+    <view class="item status {{orderItem.orderStatus=='dead'?'show':''}}">交易关闭</view>
+    <view class="item status {{orderItem.orderStatus=='active'&&orderItem.payStatus=='0'?'show':''}}">待付款</view>
+    <view class="item status {{orderItem.orderStatus=='active'&&orderItem.payStatus=='1'&&orderItem.checkStatus=='0'?'show':''}}">待核检</view>
+  </view>
+  <view class="body">
+    <view class="table table-header">
+      <view class="item">商品</view>
+      <view class="item">单价</view>
+      <view class="item">数量</view>
+      <view class="item">金额</view>
+    </view>
+    <view class="content">
+      <block wx:for="{{orderItem.items}}" wx:key="{{item.barcode}}">
+        <view class="table table-item">
+          <view class="item">{{item.name}}</view>
+          <view class="item">¥{{item.price}}</view>
+          <view class="item">
+            <text class="number">×{{item.quantity}}</text>
+          </view>
+          <view class="item">¥{{item.amount}}</view>
+        </view>
+        <view class="btn recieve" wx:if="{{orderItem.orderType==1&&orderItem.payStatus=='1'&&item.receipted==1}}">
+          <text class="recieve">已收货</text>
+          <text>{{item.receipt_time}}</text>
+        </view>
+        <view class="btn comfirm" bindtap="receiveOrder" data-id="{{orderItem.orderId}}" data-barcode="{{item.barcode}}" wx:if="{{orderItem.orderType==1&&orderItem.payStatus=='1'&&item.receipted==0}}">
+          <text class="comfirm">确认收货</text>
+        </view>
+      </block>
+    </view>
+
+    <view class="list">
+      <view class="list-item">
+        <view class="left">总数量</view>
+        <view class="right">{{orderItem.productNum}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">折前总金额</view>
+        <view class="right">¥{{orderItem.totalAmount}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">总折扣</view>
+        <view class="right">¥{{orderItem.discountAmount}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">商品金额</view>
+        <view class="right">¥{{realProductPrice}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">实付金额</view>
+        <view class="right" wx:if="{{orderItem.payStatus=='1'}}">¥{{realProductPrice}}</view>
+        <view class="right" wx:else>¥0.00</view>
+      </view>
+      <view class="list-item">
+        <view class="left">找零金额</view>
+        <view class="right">¥0.00</view>
+      </view>
+      <view class="list-item">
+        <view class="left">支付金额</view>
+        <view class="right" wx:if="{{orderItem.payStatus=='1'}}">¥{{realProductPrice}}</view>
+        <view class="right" wx:else>¥0.00</view>
+      </view>
+      <view class="list-item has-dotter">
+        <view class="left">交易时间</view>
+        <view class="right">{{orderItem.payTime}}</view>
+      </view>
+      <view class="dotter">
+        <image src="/images/line.png"></image>
+      </view>
+      <view class="list-item">
+        <view class="left">会员卡号</view>
+        <view class="right">{{carNo||''}}</view>
+      </view>
+      <!--<view class="list-item"> 
+                <view class="left">此次交易获得积分</view>
+                <view class="right"></view>
+            </view>
+            <view class="list-item"> 
+                <view class="left">账户当前总积分</view>
+                <view class="right"></view>
+            </view>-->
+    </view>
+
+    <view class="tip">
+      <view class="msg">
+        <image class="line" src="/images/line.png"></image>
+        <view class="center">
+          <image src="/images/tip.png"></image>
+        </view>
+
+      </view>
+      <view class="detail">
+        电子小票是您退换货的唯一凭证；请您在一个月之内开具发票
+      </view>
+      <view class="dotter">
+        <image src="/images/line.png"></image>
+      </view>
+    </view>
+
+    <view class="list">
+      <view class="list-item">
+        <view class="left">交易形态</view>
+        <view class="right">超市</view>
+      </view>
+      <view class="list-item">
+        <view class="left">交易门店</view>
+        <view class="right">{{orderItem.shopName}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">交易POS机编号</view>
+        <view class="right">{{orderItem.checkMachine||''}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">收银员</view>
+        <view class="right">{{orderItem.checker||''}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">交易编号</view>
+        <view class="right">{{orderItem.orderId}}</view>
+      </view>
+      <view class="list-item">
+        <view class="left">创建日期</view>
+        <view class="right">{{orderItem.createTime}}</view>
+      </view>
+      <view class="list-item has-dotter">
+        <view class="left"></view>
+        <view class="right"></view>
+      </view>
+    </view>
+    <image src="/images/sawtooth.png" style="height:10rpx;width:100%"></image>
+  </view>
+  <view class="space" style="height:260rpx;width:100%;background-color:#f6f6f6"></view>
+  <view class="footer">
+    <view data-id="{{orderItem.orderId}}" data-orderType="{{orderItem.orderType}}" class="btn pay {{orderItem.orderStatus=='active'&&orderItem.payStatus=='0'?'show':''}}" bindtap="payOrder">立即付款</view>
+    <button bindtap="applyRefund" data-id="{{orderItem.orderId}}" class="btn {{orderItem.orderStatus=='active'&&orderItem.payStatus=='1'&&orderItem.checkStatus=='0'?'show':''}}">申请退款</button>
+    <button bindtap="cancelOrder" data-id="{{orderItem.orderId}}" class="btn {{orderItem.orderStatus=='active'&&orderItem.payStatus=='0'?'show':''}}">取消订单</button>
+    <button bindtap="deleteOrder" data-id="{{orderItem.orderId}}" class="btn {{orderItem.orderType==0&&(orderItem.orderStatus=='finish'||orderItem.orderStatus=='dead')?'show':''}}">删除订单</button>
+    <button bindtap="deleteOrder" data-id="{{orderItem.orderId}}" class="btn {{orderItem.orderType==1&&canDelete&&(orderItem.orderStatus=='finish'||orderItem.orderStatus=='dead')?'show':''}}">删除订单</button>
+  </view>
+</view>

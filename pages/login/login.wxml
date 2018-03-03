@@ -1,0 +1,26 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+    <view class="login-body">
+        <view class="login-content">
+            <image src="/images/phone.png"></image>
+            <input type="text" placeholder="请输入手机号" value="{{phone}}" bindinput="phoneChange"/>
+        </view>
+        <view class="login-content">
+            <image src="/images/code.png"></image>
+            <input bindinput="codeChange" class="password" placeholder="请输入验证码" value="{{code}}"/>
+            <text class="code {{errorPhone?'':'active'}} {{isClickCode?'hide':''}}" bindtap="getCode">获取验证码</text>
+
+            <view class="count-down {{isClickCode?'active':''}}">{{countDownTime}}s</view>
+        </view>
+    </view>
+    <view class="protocol">
+        <text class="new-radio iconfont {{isAgree?'checked':''}}" bindtap="registerProtocol"></text>
+        <text>登录即代表阅读并同意</text><text class="book" bindtap="goRegisterProtocol">《步步高微信平台服务协议》</text>
+    </view>
+    <view class="login-submit">
+        <view bindtap="login" class="login-button {{(errorCode||!isAgree)?'':'active'}}">登录</view>
+        <button class="weixinbutton" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信手机号授权登录</button> 
+
+    </view>
+    <view class="tips">登录后将自动绑定微信号</view>
+</view>

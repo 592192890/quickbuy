@@ -1,0 +1,27 @@
+<!--pages/scan/scan.wxml-->
+<import src="/template/scan-dialog-tpl.wxml"/>
+
+<view class="container">
+    <view class="header">
+        <view class="search item">
+            <input class="code iconfont" bindinput="codeChange" placeholder="请手动输入商品条形码" value="{{code}}"/>
+        </view>
+        <view class="btn item" bindtap="searchCode">
+            <view>查找</view>
+        </view>
+    </view>
+
+    <view class="gap"></view>
+
+    <view class="scan">
+        <view class="tip">
+            您可以手动搜索条码，或者继续扫描商品条码
+        </view>
+        <view class="scan-btn">
+            <view class="btn" bindtap="scanCode">扫一扫</view>
+        </view>
+    </view>
+
+
+
+</view>

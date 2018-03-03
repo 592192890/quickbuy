@@ -1,0 +1,219 @@
+/* pages/order/order.wxss */
+page{
+    background-color:#f6f6f6;
+}
+.tab-group{
+    display: flex;
+    display: -webkit-flex;
+    text-align:center;
+    background-color:#ffffff;
+    border-top:1rpx solid #efefef;
+    border-bottom:1rpx solid #f6f6f6;
+    height:80rpx;
+    align-items:center;
+    position:fixed;
+    top:0px;
+    width:100%;
+    z-index:100;
+    font-size:30rpx;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.tab-item{
+    flex:1;
+    margin:25rpx 50rpx 15rpx 50rpx;
+    /*height:80rpx;*/
+    /*line-height:80rpx;*/
+    padding-bottom:10rpx;
+    color:#666666;
+}
+.tab-item.active{
+    border-bottom:2px solid #fede5b;
+    color:#333333;
+    margin-bottom:13rpx;
+}
+
+.tab-content{
+    margin-top:80rpx;
+}
+.scroll-view{
+    height:calc(100vh - 100rpx);
+}
+/*.content-item{
+    display: none;
+}
+.content-item.active{
+    display: block;
+}*/
+
+.order-body{
+    background-color:#ffffff;
+    margin-top:20rpx;
+}
+/*.order-body:first-child{
+    margin-top:0px;
+}*/
+.order-body .header{
+    margin:0 30rpx;
+    /*font-size:28rpx;*/
+    height:80rpx;
+    color:#666666;
+    position:relative;
+}
+.order-body .header .left{
+    display: inline-block;
+    line-height:80rpx;
+    height:80rpx;
+    color:#666666;
+    font-size:28rpx;
+    position: relative;
+    margin-left:10rpx;
+}
+.order-body .header image{
+    width:40rpx;
+    height:40rpx;
+    /*position:absolute;
+    top:20rpx;
+    left:0px;*/
+    vertical-align: middle;
+    color:#999999;
+}
+
+/*.order-body .header .left:before{
+    content:'\e7c2';
+    font-size:40rpx;
+    margin-right:10rpx;
+    position:relative;
+    top:5rpx;
+    color:#999999;
+}*/
+.order-body .header .right{
+    float:right;
+    line-height:80rpx;
+    color:#999999;
+    font-size:24rpx;
+}
+.order-body .action{
+    height:90rpx;
+    line-height:90rpx;
+    padding:0 30rpx;
+    position:relative;
+    font-size:28rpx;
+}
+
+.order-body .action .status{
+    display:inline-block;
+    height:90rpx;
+    line-height:90rpx;
+    color:#f95d5b;
+}
+.order-body .action .btn{
+    color:#333333;
+    border-radius:4rpx;
+    font-size:30rpx;
+    height:60rpx;
+    right:30rpx;
+    line-height:60rpx;
+    width:160rpx;
+    text-align:center;
+    display: inline-block;
+    border:2rpx solid #efefef;
+    box-sizing:border-box;
+    position:absolute;
+    top:50%;
+    margin-top:-30rpx;
+}
+.order-body .action .btn.pay{
+    background-color:#fede5b;
+    border:none;
+}
+.order-body .action .btn.cancel{
+    margin-right:190rpx;
+}
+.order-body .item{
+    /*height:170rpx;*/
+    padding:0 30rpx;
+    background-color:#f9fafc;
+}
+.order-body .item .product-des .product-name{
+    font-size:30rpx;
+    min-height:30rpx;
+    padding-top:20rpx;
+    width:700rpx;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: all;
+    color:#333333;
+}
+.order-body .item .product-des .product-name .mark{
+    width:38rpx;
+    height:38rpx;
+    font-size:28rpx;
+    color:#333333;
+    border-radius:8rpx;
+    text-align:center;
+    line-height:38rpx;
+    background-color:#f9d544;
+    display:inline-block;
+    margin-right:10rpx;
+}
+.order-body .item .product-des .number{
+    font-size:26rpx;
+    min-height:26rpx;
+    color:#999999;
+    margin-top:10rpx;
+}
+.order-body .item .product-des .total-price{
+    font-size:28rpx;
+    min-height:30rpx;
+    margin-top:20rpx;
+    padding-bottom:20rpx;
+}
+.order-body .item .product-des .total-price .left{
+    font-size:26rpx;
+    color:#333333;
+}
+.order-body .item .product-des .total-price .right{
+    font-size:30rpx;
+    /*font-weight:bold;*/
+    color:#333333;
+}
+
+swiper{
+    height:calc(100vh - 100rpx)
+}
+.noData,.noMoreData,.loading{
+    display: none;
+    text-align:center;
+    height:40rpx;
+    color:#999999;
+    font-size:26rpx;
+    
+}
+.noMoreData,.loading{
+    padding-top:20rpx;
+}
+.noData.show,.noMoreData.show,.loading.show{
+    display: block;
+    
+}
+.noData.show{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+.noMoreData .label{
+    display: inline-block;
+    margin-left:20rpx;
+    margin-right:20rpx;
+}
+.noMoreData .line{
+    display:inline-block;
+    width:120rpx;
+    height:0px;
+    border-top:1rpx solid #efefef;
+    margin-bottom:7rpx;
+}

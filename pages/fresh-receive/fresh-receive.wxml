@@ -1,0 +1,58 @@
+<!--pages/fresh-receive/fresh-receive.wxml-->
+
+<view class="new-header">
+    <view class="new-img iconfont">
+        <text class="result">支付成功</text>
+    </view>
+    <view class="price">¥{{orderItem.realProductPrice}}</view>
+    <view class="tip">
+        <view>请<text class="red">出示该页面</text>给工作人员，取货后点击下方的</view>
+        <view><text class="red">确认收货</text>，谢谢！</view>
+    </view>
+</view>
+
+<view class="new-detail">
+    <view>下单门店：{{orderItem.shopName}}</view>
+    <view>下单时间：{{orderItem.year}} <text class="color">{{orderItem.hour}}</text></view>
+    <view>订单号：{{orderItem.orderId}}</view>
+    <view class="btn" bindtap="goNewOrderDetail" data-orderId="{{orderItem.orderId}}">
+        <text>订单详情</text>
+        <text class="new-img iconfont"></text>    
+    </view>
+</view>
+
+<view class="new-list">
+    <block wx:for="{{orderItem.orderList}}" wx:key="item.barcode">
+        <view class="content">
+            <view class="wrap">
+                <view class="name">{{item.name}}</view>
+                    <view class="price-num">
+                        <text class="num">×{{item.quantity}}</text>
+                        <text class="price">¥{{item.amount}}</text>
+                    </view>
+            </view>
+            
+            <view class="btn {{item.receipted==0?'show':''}}" data-orderId="{{orderItem.orderId}}" data-barcode="{{item.barcode}}" bindtap="comfirmReceive">确认收货</view>
+            <view class="success {{item.receipted==1?'show':''}}">
+                <view class="tips">已取货</view>
+                <view class="time">{{item.receipt_time}}</view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="space"></view>
+<view class="new-footer">
+    <view class="item" bindtap="goCart">
+        <image src="/images/cart.png"></image>
+        <view class="name">购物车</view>
+    </view>
+    <view class="item" bindtap="goScan">
+        <image src="/images/scan.png"></image>
+        <view class="name">扫一扫</view>
+    </view>
+    <view class="item" bindtap="goMy">
+        <image src="/images/my.png"></image>
+        <view class="name">我的</view>
+    </view>
+</view>
+

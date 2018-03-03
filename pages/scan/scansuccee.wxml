@@ -1,0 +1,77 @@
+<view>
+
+ <view class="gap"></view>
+ <view class="scan_success_section">
+   <view class="scan_success_section_top">
+     <image class="tick_icon"  src="/images/tick_icon.png" mode="aspectFill"></image>
+     <text class="headerfont">扫描成功</text>
+   </view>
+   <view class="scan_success_section_mid">
+     <view>
+          <view wx:if="{{productModel.productImg.length >0}}"><image class="scan_success_section_productImg" src="{{productModel.productImg}}" wx:if="{{productModel.productImg}}" mode="aspectFill"></image></view>
+          <view wx:else><image class="scan_success_section_productImg" src="/images/product_default.png" mode="aspectFill"></image></view>
+     </view>
+     <view class="scan_success_section_right">
+        <text class="scan_success_section_name" style="font-size:30rpx">{{productModel.productName}}</text>
+        <view class="scan_success_section_weight">
+         <text style="color:#cccccc;font-size:26rpx">单价: ¥{{productModel.price}}</text>
+         <view style="color:#cccccc;font-size:26rpx;margin-left:10rpx" wx:if="{{productModel.weight}}"> 重量:{{productModel.weight}}kg</view>
+        </view>
+        <view class="scan_success_section_subtitle">
+         <text style="color:#cccccc;font-size:26rpx">售价：</text>
+         <text style="color:#f95d5b;font-size:26rpx">¥</text>
+         <text style="color:#f95d5b;font-size:32rpx">{{productModel.amount}}</text>
+         <view class="calculate">
+               <text class="inline minus iconfont {{productModel.modqty=='Y'?'':'disable'}}" bindtap="minus" data-isweight="{{productModel.modqty}}"></text>
+               <input class="inline number" bindblur="changeNumber" value="{{productModel.quantity}}" data-isweight="{{productModel.modqty}}"/>
+               <text class="inline add iconfont {{productModel.modqty=='Y'?'':'disable'}}" bindtap="add"  data-isweight="{{productModel.modqty}}"></text>
+         </view>
+        </view>
+     </view>
+   </view>
+   <view class="scan_success_section_bottom">
+       <view class="scan_success_btn" bindtap="cancelCart"> <text>取消</text></view>
+       <view class="scan_success_btn scan_success_btn_addcar" bindtap="addToCart"><text>加入购物车</text></view>
+   </view>
+ </view>
+ <block wx:if="{{recommendation.length?true:false}}">
+  <view>
+   <view class="gap"></view>
+   <view class="tipBg">
+    <text class="tipfont">小步：客官~超受欢迎的同类商品畅销榜！欢迎选购哟~</text>
+   </view>
+    <scroll-view class="order-list" scroll-y="true" wx:if="{{recommendation.length>0}}">
+     <view class="order-list_content">
+      <view class="order-list_item" wx:for="{{recommendation}}" wx:for-index="index" wx:for-item="item" class="recommend-item" data-title="{{item.title}}" data-url="{{item.url}}" bindtap="bindViewTap">
+       <view  wx:if="{{index == 0||index == 1||index == 2}}">
+          <image class="recommend-icon"  src="/images/No{{index+1}}.png" mode="aspectFill"></image>
+       </view>
+       <view>
+         <view wx:if="{{item.productImg.length >0}}"><image class="recommend-image" src="{{item.productImg}}" wx:if="{{item.productImg}}" mode="aspectFill"></image></view>
+         <view wx:else><image class="recommend-image" src="/images/product_default.png" mode="aspectFill"></image></view>
+       </view>
+       <view class="recommend-text">
+
+        <view class="recommend-mid">
+         <view class="scan_success_section_name" style="font-size:28rpx;padding-right:20rpx;padding-left:20rpx;">{{item.productName}}</view>
+         <view class="recommend-subtitle">
+           <text style="color:#f95d5b;font-size:24rpx;width:20rpx">¥</text>
+           <text style="color:#f95d5b;font-size:30rpx">{{item.price}}</text>
+         </view>
+        </view>
+        <view class="recommend-right">
+          <text style="color:#f95d5b;font-size:48rpx;text-align:center">{{item.buyRatio}}%</text>
+          <text style="color:#999999;font-size:26rpx;text-align:left;margin-top:45rpx">购买占比</text>
+        </view>
+        </view>
+
+       </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view></view>
+ </block>
+
+
+
+</view>

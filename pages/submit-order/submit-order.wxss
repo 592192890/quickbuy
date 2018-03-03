@@ -1,0 +1,411 @@
+/* pages/submit-order/submit-order.wxss */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.dialog_content {
+  display: none;
+}
+
+.dialog_content.active {
+  display: block;
+  position: fixed;
+  bottom: -800rpx;
+  left: 0rpx;
+  z-index: 100;
+  height: 800rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.dialog-title {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.nouserCoupon {
+  border-style: solid;
+  display: inline-flex;
+  background-color: white;
+  width: 315rpx;
+  justify-content: center;
+  height: 90rpx;
+  align-items: center;
+  border-radius: 50rpx;
+  font-size: 34rpx;
+  color: #333;
+  border-color: #ccc;
+  border-width: 1px;
+  text-align: center;
+}
+
+.define {
+  border-radius: 50rpx;
+  border-style: solid;
+  height: 90rpx;
+  align-items: center;
+  margin-left: 60rpx;
+  display: inline-flex;
+  background-color: gold;
+  color: #333;
+  width: 315rpx;
+  justify-content: center;
+  text-align: center;
+  border-width: 0;
+}
+
+.bottom-btn {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 150rpx;
+}
+
+.couponList {
+  display: block;
+  width: 100%;
+  height: 600rpx;
+  position: absolute;
+  top: 101rpx;
+  left: 30rpx;
+  margin-bottom: 100rpx;
+}
+
+.couponItem {
+  position: relative;
+  margin-bottom: 30rpx;
+  width: 100%;
+}
+
+.img-coupon-bg {
+  position: relative;
+  display: block;
+  width: 690rpx;
+  height: 150rpx;
+}
+
+.couponPriceF {
+  color: #333;
+}
+
+.couponPriceContainer {
+  width: 150rpx;
+  justify-content: center;
+  position: absolute;
+  right: 75rpx;
+  top: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.couponPrice {
+  text-align: center;
+  font-size: 60rpx;
+  color: #333;
+}
+
+.couponTime {
+  position: absolute;
+  left: 30rpx;
+  top: 80rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.couponName {
+  position: absolute;
+  left: 30rpx;
+  top: 40rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.submit-tips {
+  display: none;
+  border-top: 1rpx solid #efefef;
+  font-size: 28rpx;
+  color: #333;
+  padding: 30rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  line-height: 40rpx;
+}
+
+.submit-tips.show {
+  display: block;
+}
+
+.submit-tips .tips-img {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+}
+
+.submit-tips .tips {
+  margin-left: 52rpx;
+}
+
+.submit-tips .color {
+  color: #f95d5b;
+}
+
+.submit-body {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.submit-body .header {
+  margin: 0 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.submit-body .header .img {
+  width: 40rpx;
+  height: 40rpx;
+  /*position:absolute;
+    top:20rpx;
+    left:0px;*/
+  vertical-align: middle;
+  color: #999;
+}
+
+.submit-body .header .left {
+  display: inline-block;
+  line-height: 80rpx;
+  height: 80rpx;
+  color: #666;
+  font-size: 28rpx;
+  position: relative;
+  margin-left: 10rpx;
+  display: inline-block;
+}
+
+/*.submit-body .header .left:before{
+    content:'\e7c2';
+    font-size:40rpx;
+    margin-right:10rpx;
+    position:relative;
+    top:5rpx;
+    color:#999999;
+}*/
+
+.line {
+  display: block;
+  height: 1rpx;
+  background-color: #efefef;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+}
+
+.submit-body .header .right {
+  float: right;
+  display: inline-block;
+}
+
+.submit-body .item {
+  display: flex;
+  display: -webkit-flex;
+  padding: 0 0 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.submit-body .item:last-child {
+  /*border-bottom-width:0px;*/
+  margin-bottom: 100rpx;
+}
+
+.submit-body .item .product-des {
+  border-top: 1rpx solid #efefef;
+  flex: 7;
+}
+
+.submit-body .item .product-des .product-name {
+  font-size: 30rpx;
+  min-height: 30rpx;
+  margin-top: 20rpx;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: all;
+  color: #333;
+}
+
+.submit-body .item .product-des .product-name .mark {
+  width: 38rpx;
+  height: 38rpx;
+  font-size: 28rpx;
+  color: #333;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 38rpx;
+  background-color: #f9d544;
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.submit-body .item .product-des .weight {
+  font-size: 26rpx;
+  min-height: 26rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.submit-body .item .product-des .weight.hidden {
+  opacity: 0;
+}
+
+.submit-body .item .product-des .price {
+  font-size: 28rpx;
+  min-height: 28rpx;
+  margin-top: 20rpx;
+  color: #333;
+}
+
+.submit-body .item .sum-price {
+  border-top: 1rpx solid #efefef;
+  flex: 3;
+  text-align: right;
+  margin-right: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: all;
+}
+
+.submit-body .item .sum-price .number {
+  font-size: 26rpx;
+  min-height: 26rpx;
+  margin-top: 60rpx;
+  color: #999;
+}
+
+.submit-body .item .sum-price .sum {
+  font-size: 28rpx;
+  min-height: 28rpx;
+  color: #f95d5b;
+  margin-top: 25rpx;
+}
+
+.scrollBg {
+  height: 1500rpx;
+  background-color: #f6f6f6;
+  margin-bottom: 110rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 110rpx;
+  border-top: 1rpx solid #efefef;
+  background-color: #fff;
+}
+
+.footer .radio {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.footer .radio.show {
+  display: inline-block;
+  margin-right: 30rpx;
+}
+
+.footer .radio.hidden {
+  display: none;
+}
+
+.footer .main-amount {
+  display: flex;
+  height: 60rpx;
+  align-items: flex-end;
+}
+
+.footer .detail-amount {
+  align-items: flex-start;
+  padding-left: 20rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.footer .payAmountName {
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  /*font-weight:bold;*/
+  color: #333;
+}
+
+.footer .payAmountMoney {
+  color: #f95d5b;
+  font-size: 36rpx;
+  /*font-weight:bold;*/
+}
+
+.footer .sum {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200rpx;
+  height: 100%;
+  background-color: #f9df72;
+  /*font-weight:bold;*/
+  color: #333;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius:0px;
+  border:none;
+}
+
+button[class="sum"]::after {
+  border-radius:0px;
+  border:none;
+} 
+
+.coupon {
+  padding-right: 20rpx;
+  padding-left: 30rpx;
+  background-color: white;
+  display: flex;
+  height: 100rpx;
+  width: 100%;
+  align-items: center;
+}
+
+.coupon .coupon-user {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.coupon .coupon-empty {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.coupon .coupon-info {
+  color: #333;
+  font-size: 28rpx;
+  position: absolute;
+  right: 80rpx;
+}
+
+.coupon .arrow {
+  position: absolute;
+  right: 20rpx;
+}

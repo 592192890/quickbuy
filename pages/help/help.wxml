@@ -1,0 +1,44 @@
+<!--pages/help/help.wxml-->
+<view class="container">
+    <view class="title">1.扫码购是什么？</view>
+    <view class="content">扫码购是顾客可在卖场挑选所需商品，然后使用手机自助扫描商品，线上一键支付，走专属通道<text class="red">（自助收银机）</text>离店的快捷购物方式。无需排队，快捷购物！</view>
+
+    <view class="title">2.扫码购具体怎么操作？</view>
+    <view class="content">① 由线下扫描二维码关注扫码购小程序，进入扫码购；</view>
+    <view class="content">② 选择当前门店；</view>
+    <view class="content">③ 在货架上挑选商品，使用“扫一扫”功能扫描商品，商品添加至虚拟购物车；</view>
+    <view class="content">④ 选择所需商品提交订单，并使用微信支付；</view>
+    <view class="content"><text class="red">⑤ 完成支付后生成身份核检码，携带身份核检码和商品前往扫码购专属通道（即自助收银机）；</text></view>
+    <view class="content"><text class="red">⑥ 使用自助收银机扫描身份核检码，自助核检（称重商品需工作人员协助），即可离店。</text></view>
+
+    <view class="title">3.支付方式有哪些？</view>
+    <view class="content">目前仅支持微信支付</view>
+
+    <view class="title">4.如何查询订单？</view>
+    <view class="content">进入“我的”页面，点击“全部订单”可以查询所有订单。</view>
+
+    <view class="title">5.如何修改订单？</view>
+    <view class="content">扫码购提供订单修改功能，订单一旦提交成功则无法修改，请您在提交订单时仔细核对订单信息，确认无误再提交。订单未核检之前可退款，如果确认订单错误，请在核检之前取消订单再重新下单。</view>
+
+    <view class="title">6.如何取消订单？</view>
+    <view class="content">① 当您的订单处于“未核检”的状态，可点击“退款”，系统将为您取消订单并原路返回退款；</view>
+    <view class="content">② 当您的订单处于“待付款”的状态，可点击“取消订单”，系统将为您取消订单。如果订单已核检，不能取消订单且无法线上退款，有退换货需求请联系线下所购门店的服务台。</view>
+
+    <view class="title">7.如何进行退换货？</view>
+    <view class="content">如果遇到质量问题，您可以在核检后，凭订单的电子小票到所购门店的服务台进行退换货。</view>
+
+    <view class="title">8.如何开具发票？</view>
+    <view class="content">如需开具发票，请出示订单信息直接前往所购门店的服务台开具发票。</view>
+
+    <view class="title">9.购买商品有没有件数限制？</view>
+    <view class="content">银卡会员，使用扫码购购商品根据每个门店的规则限制数量会在购物车页面提示说明，同种类同规格商品不限制购买数量。</view>
+
+    <view class="title">10.如何查询身份核检码？</view>
+    <view class="content">① 进入“我的”页面，点击“身份核检码”可查到身份核检码。</view>
+    <view class="content">② 有未核检且已支付状态的订单，购物车上方会展示身份核检码。</view>
+
+    <view class="title">11.扫码购有纸质小票吗？</view>
+    <view class="content">扫码购没有纸质小票，您可以在订单详情查询电子小票，如果您需要纸质小票，可在您购买的门店服务台补打印纸质小票。</view>
+
+</view>
+<image class="bg" src="/images/help-bg.png"></image>

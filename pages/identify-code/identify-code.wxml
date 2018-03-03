@@ -1,0 +1,48 @@
+<!--pages/identify-code/identify-code.wxml-->
+
+<view class="container">
+    <view class="header-line"></view>
+    <view class="identify-code">
+        <view class="img-name">身份核检码</view>
+        <image src="https://ssl.yunhou.com/easygo/users/card_barcode_img?cardNo={{identifyCode}}" style="width:600rpx;height:200rpx;"></image>
+        <view class="tip">
+            <text style="color:#000000">温馨提示：</text>该条码用于离店核检，请前往<text style="color:#f95d5b">“自助通道”</text><text>服务</text>
+        </view>
+    </view>
+    <view class="instruction">
+        <view class="item">
+            <text class="line"></text>
+            <text class="label">使用方式</text>
+            <text class="line"></text>
+        </view>
+
+        <view class="tip-img">
+            <view class="icon">
+                <view class="iconfont scan">
+                    <image src="/images/cart-scan.png" style="width:40rpx;height:40rpx;margin-top:32rpx;"></image>
+                </view>
+            </view>
+           <view class="arrow">
+                <image src="/images/arrow.png"></image>
+           </view>
+            <view class="icon">
+                <view class="iconfont pay">
+                    <image src="/images/check.png" style="width:44rpx;height:44rpx;margin-top:32rpx;"></image>
+                </view>
+            </view>
+
+        </view>
+        <view class="tip-description">
+            <view class="item">
+                <view>自助扫描商品后</view>
+                <view>前往“自助通道”</view>
+            </view>
+
+            <view class="item">
+                <view>核检时出示</view>
+                <view>身份核检码</view>
+            </view>
+        </view>
+
+    </view>
+</view>

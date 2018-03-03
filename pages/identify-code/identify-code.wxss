@@ -1,0 +1,97 @@
+/* pages/identify-code/identify-code.wxss */
+page{
+    background-color:#f6f6f6;
+}
+.header-line{
+    height:0px;
+    width:100%;
+    border-top:1rpx solid #efefef;
+    position:fixed;
+    top:0px;
+}
+.identify-code{
+    /*padding-top:50rpx;*/
+    background-color:#ffffff;
+    text-align:center;
+    /*border-top:1px solid #efefef;*/
+}
+.identify-code .img-name{
+    padding-top:50rpx;
+    padding-bottom:20rpx;
+    font-size:26rpx;
+    letter-spacing:24rpx;
+}
+.identify-code .tip{
+    margin-top:50rpx;
+    font-size:28rpx;
+    padding-bottom:60rpx;
+}
+
+.instruction{
+    margin-top:20rpx;
+    background-color:#ffffff;
+  
+}
+
+.instruction .item{
+    text-align:center;
+    padding-top:50rpx;
+    font-size:28rpx;
+    padding-bottom:80rpx;
+    
+}
+.instruction .item .label{
+    display: inline-block;
+    margin-left:20rpx;
+    margin-right:20rpx;
+}
+.instruction .item .line{
+    display:inline-block;
+    width:120rpx;
+    height:0px;
+    border-top:1rpx solid #efefef;
+    margin-bottom:7rpx;
+}
+
+
+.instruction .tip-img{
+    display: flex;
+    display: -webkit-flex;
+    margin-left:20rpx;
+    margin-right: 20rpx;
+}
+.instruction .tip-img .arrow{
+    line-height:104rpx;
+}
+.instruction .tip-img .icon{
+    height:104rpx;
+    flex:2;
+}
+.instruction .tip-img .icon .iconfont{
+    width:104rpx;
+    height:104rpx;
+    border-radius:50%;
+    background-color:#f7f7f7;
+    margin-left:73rpx;
+    margin:0 auto;
+    text-align:center;
+}
+
+.instruction .tip-img .arrow{
+    line-height:104rpx;
+}
+.instruction .tip-img .arrow image{
+    width:40rpx;
+    height:10rpx;
+}
+.tip-description{
+    display: flex;
+    display: -webkit-flex;
+    margin-left:20rpx;
+    margin-right:20rpx;
+
+}
+.tip-description .item{
+    flex:1;
+    text-align:center;
+}

@@ -1,0 +1,5 @@
+<!--pages/guide-shop/guide-shop.wxml-->
+
+<view class="guide" bindtap="directToGuidePage">
+    <image src="/images/guide-one.png"></image>
+</view>

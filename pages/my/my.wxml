@@ -1,0 +1,83 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="info">
+            <view class="item img">
+                <image src="{{userInfo.avatarUrl}}" wx:if="{{userInfo.avatarUrl}}"></image>
+            </view>
+            <view class="item">{{userInfo.nickName}}/{{mobile}}</view>
+            <view class="item last">
+                <view class="img vip">
+                    <image src="/images/silver.png" wx:if="{{memberLevel=='银卡'}}"></image>
+                    <image src="/images/gold.png" wx:if="{{memberLevel=='金卡'}}"></image>
+                    <image src="/images/diamond.png" wx:if="{{memberLevel=='钻石卡'}}"></image>
+                    <text class="member-name">{{memberLevel}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="tab-group">
+            <view class="tab-item" data-id="1" bindtap="goOrder">
+                <image class="img-item all-order" src="/images/all-order.png">
+                </image>
+                <view class="order-item all-order">
+                    全部订单
+                </view>
+            </view>
+            <view class="tab-item" data-id="2" bindtap="goOrder">
+                <image src="/images/unpay.png" class="img-item unpay">
+                </image>
+                <view class="top-number {{unpayNumber>0?'active':''}}">{{unpayNumber}}</view>
+                <view class="order-item unpay">
+                    待付款
+                </view>
+            </view>
+            <view class="tab-item" data-id="3" bindtap="goOrder">
+                <image src="/images/uncheck.png" class="img-item uncheck">
+                </image>
+                <view class="top-number {{uncheckNumber>0?'active':''}}">{{uncheckNumber}}</view>
+                <view class="order-item uncheck">
+                    待核检
+                </view>
+            </view>
+
+        </view>
+    </view>
+
+    <view class="list-item first" bindtap="goIdentifyCode">
+      <view class="inner">
+          <view class="label">身份核检码</view>
+          <view class="code-img">
+              <image src="/images/my-code.png"></image>
+          </view>
+          <view class="img iconfont"></view>
+      </view>
+    </view>
+
+    <view class="list-item first" bindtap="goInvoice">
+        <view class="inner" style="border-top:1rpx solid #efefef">
+          <view class="label">开发票</view>
+          <view class="img iconfont"></view>
+        </view>
+    </view>
+
+    <view class="list-item" bindtap="goDiscountCouponList">
+        <view class="inner" style="border-bottom:1rpx solid #efefef">
+            <view class="label">优惠券</view>
+            <view class="img iconfont"></view>
+        </view>
+    </view>
+
+    <view class="list-item" bindtap="goToggleShop">
+        <view class="inner" style="border-bottom:1rpx solid #efefef">
+            <view class="label">切换门店</view>
+            <view class="img iconfont"></view>
+        </view>
+    </view>
+
+    <view class="list-item" bindtap="goHelpCenter">
+        <view class="inner" style="border-top:1rpx solid #efefef">
+            <view class="label">帮助中心</view>
+            <view class="img iconfont"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,17 @@
+
+<template name="dialog">
+    <view class="myCoupon-cover-layer {{isShow?'active':' '}}" catchtap='closePressed'>
+    </view>
+    <view class="myCoupon-dialog {{isShow?'active':' '}}">
+        <view class='qr'>
+            <view class='qr-bg'>
+                <image class='bar-code' src='{{currentTagCoupon.barCodeUrl}}'></image>
+                <image class='qr-code'  src='{{currentTagCoupon.qrCodeUrl}}'></image>
+                <text style="font-size:30rpx">请向工作人员出示</text>
+            </view>
+        </view>
+        <view class='close-bg' catchtap='closePressed'>
+             <text class='iconfont close'></text> 
+        </view>
+    </view>
+</template>

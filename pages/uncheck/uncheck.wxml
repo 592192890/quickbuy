@@ -1,0 +1,20 @@
+<!--pages/uncheck/uncheck.wxml-->
+<import src="/template/identify-code.wxml"/>
+<view class="container">
+    <template is="identifyCode" data="{{processName:'待核检',orderId:orderId,identifyCode:identifyCode}}"></template>
+    <view class="space"></view>
+    <view class="new-footer">
+        <view class="item" bindtap="goCart">
+            <image src="/images/cart.png"></image>
+            <view class="name">购物车</view>
+        </view>
+        <view class="item" bindtap="goScan">
+            <image src="/images/scan.png"></image>
+            <view class="name">扫一扫</view>
+        </view>
+        <view class="item" bindtap="goMy">
+            <image src="/images/my.png"></image>
+            <view class="name">我的</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,215 @@
+/* pages/order-detail/order-detail.wxss */
+page{
+    background-color:#f6f6f6;
+}
+.header-line{
+    height:0px;
+    border-top:1rpx solid #efefef;
+    position:fixed;
+    top:0px;
+    width:100%;
+}
+.header{
+    background-color:#ffffff;
+    /*border-top:1px solid #efefef;*/
+    height:100rpx;
+    line-height:100rpx;
+    padding:0 30rpx;
+    color:#333333;
+}
+.header .item{
+    display: inline-block;
+    
+}
+.header .item.title{
+    font-size:28rpx;
+}
+.body{
+    margin:20rpx 20rpx 0 20rpx;
+    background-color:#ffffff;
+    color:#666666;
+    /*padding-bottom:300rpx;*/
+}
+.body .content{
+    border-bottom:1px solid #efefef;
+    margin-left:20rpx;
+    /*padding-right:20rpx;*/
+    padding-bottom:30rpx;
+}
+.body .content .btn{
+    height:70rpx;
+    font-size:30rpx;
+    margin-top:20rpx;
+    margin-bottom:20rpx;
+    margin-right:20rpx;
+    border-radius:8rpx;
+}
+.body .content .btn.recieve{
+    text-align:center;
+    line-height:70rpx;
+    color:#ffffff;
+    background-color:#cccccc;
+}
+.body .content .btn.recieve text{
+    line-height:70rpx;
+}
+.body .content .btn.recieve .recieve{
+    margin-right:10rpx;
+}
+.body .content .btn.comfirm{
+    color:#333333;
+    background-color:#f9d544;
+    text-align:center;
+    line-height:70rpx;
+}
+.body .table{
+    display: flex;
+    display: -webkit-flex;
+}
+.body .table.table-header{
+    height:80rpx;
+    line-height:80rpx;
+    border-bottom:1px solid #efefef;
+    font-size:28rpx;
+}
+.body .table .item{
+    flex:1;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+.body .table .item:first-child{
+    flex:2;
+    text-align: left;
+    padding-left:20rpx;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+    font-size:28rpx;
+}
+.body .content .table .item{
+    font-size:22rpx;
+}
+.body .content .table .item .number{
+    border:1px solid #efefef;
+    border-radius:20rpx;
+    width:60rpx;
+    display:inline-block;
+
+}
+.body .content .table .item:first-child{
+    font-size:24rpx;
+    padding-left: 0px;
+}
+
+.body .table.table-item{
+    padding-top:30rpx;
+    /*padding-right:20rpx;*/
+}
+.header .item.status{
+    display: none;
+}
+.header .item.show{
+    display: block;
+    float:right;
+    font-size:30rpx;
+    color:#f95d5b;
+}
+
+.body .list .list-item{
+    height:60rpx;
+    line-height:60rpx;
+    margin-left:20rpx;
+    padding-right:20rpx;
+    border-bottom:1px solid #efefef;
+}
+.body .list .list-item.has-dotter{
+    border:none;
+   
+}
+.body .list .dotter image{
+    height:16rpx;
+    width:100%;
+}
+.body .list .list-item .left{
+    display: inline-block;
+    font-size:26rpx;
+}
+.body .list .list-item .right{
+    display: inline-block;
+    font-size:28rpx;
+    float:right;
+}
+.body .tip{
+    background-color:#ffffff;
+}
+.body .tip .detail{
+    font-size:24rpx;
+    text-align: center;
+    padding-bottom:40rpx;
+    padding-top:50rpx;
+}
+.body .tip .msg{
+    margin-top:50rpx;
+    text-align:center;
+    position:relative;
+}
+.body .tip .msg .center{
+    width:160rpx;
+    height:100rpx;
+    position:absolute;
+    z-index:100;
+    top:-30rpx;
+    left:294rpx;
+
+}
+.body .tip .msg .center image{
+    width:130rpx;
+    height:80rpx;
+}
+
+.body .tip .msg image.line{
+    height:16rpx;
+    width:100%;
+}
+.body .tip .dotter image{
+    height:16rpx;
+    width:100%;
+}
+.footer{
+    /*margin:0 30rpx;*/
+    position:fixed;
+    bottom:0px;
+    /*width:100%;*/
+    left:20rpx;
+    right:20rpx;
+    z-index:100;
+    background-color:#f6f6f6;
+    padding-top:20rpx;
+}
+.footer .btn{
+    display: none;
+}
+.footer .btn.show{
+    display: block;
+}
+.footer button{
+    background-color: #ffffff;
+    line-height:88rpx;
+    height:88rpx;
+    font-size:32rpx;
+    color:#333333;
+    border-radius:8rpx;
+    margin-bottom:20rpx;
+}
+
+.footer .pay{
+    margin-bottom:20rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align:center;
+    font-size:32rpx;
+    background-color: #fede5b;
+    border-radius:8rpx;
+}

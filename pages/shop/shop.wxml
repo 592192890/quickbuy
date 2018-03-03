@@ -1,0 +1,69 @@
+<!--pages/shop/shop.wxml-->
+<view class="container">
+    
+    <view class="tips {{showIndex?'show':''}}" style="position:fixed;top:{{toTop}};right:70rpx;">{{showIndex}}</view>
+    <view class="index" bindtap="goIndex">
+        <view data-index="A">A</view>
+        <view data-index="B">B</view>
+        <view data-index="C">C</view>
+        <view data-index="D">D</view>
+        <view data-index="E">E</view>
+        <view data-index="F">F</view>
+        <view data-index="G">G</view>
+        <view data-index="H">H</view>
+        <view data-index="I">I</view>
+        <view data-index="J">J</view>
+        <view data-index="K">K</view>
+        <view data-index="L">L</view>
+        <view data-index="M">M</view>
+        <view data-index="N">N</view>
+        <view data-index="O">O</view>
+        <view data-index="P">P</view>
+        <view data-index="Q">Q</view>
+        <view data-index="R">R</view>
+        <view data-index="S">S</view>
+        <view data-index="T">T</view>
+        <view data-index="U">U</view>
+        <view data-index="V">V</view>
+        <view data-index="W">W</view>
+        <view data-index="X">X</view>
+        <view data-index="Y">Y</view>
+        <view data-index="Z">Z</view>
+    </view>
+    <scroll-view scroll-y="true" style="height: 100vh;" scroll-into-view="{{toView}}">
+        <view class="lbs-result" wx:if="{{isLBS}}" id="header">
+            <view class="header">当前门店</view>
+            <view class="lbs">
+                <view class="item left">{{tips}}</view>
+                <view class="item right" bindtap="reLocation">
+                    <text>重新定位</text>
+                    <image src="/images/lbs.png"></image>
+                </view>
+            </view>
+        </view>
+        <block wx:for="{{cityArr}}" wx:for-index="outerIndex" wx:for-item="outerItem" wx:key="{{outerItem.word}}">
+            <view class="item" id="{{outerItem.word}}">
+                <view class="title">{{outerItem.word}}</view>
+                <view class="content">
+                    <block wx:for="{{outerItem.cityList}}" wx:for-index='innerIndex' wx:for-item="innerItem" wx:key="innerItem.cityName">
+                        <view class="city {{innerItem.active&&innerItem.shopNameArr.length>0?'active':''}}">
+                            <view bindtap="expandShop" data-outerindex="{{outerIndex}}" data-innerindex="{{innerIndex}}">{{innerItem.cityName}}</view>
+                                <block wx:for="{{innerItem.shopNameArr}}" wx:for-index="shopIndex" wx:for-item="shopItem" wx:if="{{innerItem.active}}" wx:key="shopItem.shopId">
+                                    <text class="shop-item {{shopItem.selected?'active':''}}" bindtap="selectShop" data-id="{{shopItem.shopId}}" data-shopindex="{{shopIndex}}" data-outerindex="{{outerIndex}}" data-innerindex="{{innerIndex}}">
+                                        <text>{{shopItem.shopName}}</text>
+                                    </text>
+                                </block>
+                            </view>
+                    </block>
+                    
+                </view>
+            </view>
+        </block>
+        <view class="noMoreData">
+            <text class="line"></text>
+            <text class="label">更多店铺正在开放中，敬请关注</text>
+            <text class="line"></text>
+        </view>
+    </scroll-view>
+    
+</view>

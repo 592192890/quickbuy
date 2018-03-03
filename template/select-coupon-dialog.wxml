@@ -1,0 +1,55 @@
+<template name="dialog">
+  <view class="ui-cover-layer {{isShow?'active':''}}" bindtap='cancelDialog'></view>
+  <view class="dialog_content {{isShow?'active':''}}" animation="{{phoneAnim}}">
+
+
+
+    <text class='dialog-title'>使用优惠券</text>
+    <view wx:if="{{showTopLine}}" style=' position: absolute; top:99rpx;left: 0rpx; display: block;height: 1rpx;width: 100%;background-color: #efefef;' />
+    <view class="couponList">
+
+      <scroll-view style='display:block;height:550rpx;' scroll-y="true" bindscrolltoupper="onScollTop" bindscroll="onScroll">
+        <block wx:for="{{coupons}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.code}}">
+
+
+          <view class='couponItem' bindtap='clickCoupone' data-code='{{item.code}}'>
+
+
+            <image wx:if="{{item.selected==1}}" class="img-coupon-bg" src='/images/coupon-bg.png' />
+            <image wx:if="{{item.selected==0}}" class="img-coupon-bg" src='/images/coupon-bg-disable.png' />
+
+
+            <text class='couponName'>{{item.couponName}}</text>
+            <text wx:if="{{item.endDate}}" class='couponTime'>有效期至 {{item.endDate}}</text>
+
+            <view class='couponPriceContainer'>
+
+              <text class='couponPriceF'>￥</text>
+
+              <text class='couponPrice' style='font-size:{{item.fontsize}}rpx'>{{item.priceShow}}</text>
+
+            </view>
+
+
+          </view>
+        </block>
+      </scroll-view>
+
+
+    </view>
+
+    <view class='bottom-btn'>
+
+
+      <view class='nouserCoupon' bindtap='noUserCoupon'>
+        <text>不使用优惠券</text>
+      </view>
+
+      <view class='define' bindtap='couponDefine'>
+        <text>确定</text>
+      </view>
+
+    </view>
+
+  </view>
+</template>

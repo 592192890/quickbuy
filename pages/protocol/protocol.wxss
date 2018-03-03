@@ -1,0 +1,44 @@
+/* pages/protocol/protocol.wxss */
+
+.protocol{
+    width:100%;
+    background-color:#f7f7f7;
+    padding:50rpx 30rpx;
+    box-sizing:border-box;
+}
+
+.protocol .txt{
+    width:100%;
+    color:#666;
+    font-size:28rpx;
+    padding-bottom:36rpx;
+    line-height: 40rpx;
+}
+.protocol .last-txt{
+    padding-bottom:60rpx;
+}
+.protocol .txt text{
+    color:#f95d5b;
+}
+
+.protocol .title-spl{
+    width:100%;
+    color:#333;
+    font-size:28rpx;
+    padding-bottom:26rpx;
+    line-height: 40rpx;
+}
+
+.protocol .title{
+    width:100%;
+    color:#333;
+    font-size:30rpx;
+    padding-bottom:20rpx;
+}
+
+.protocol .big-title{
+    width:100%;
+    color:#333;
+    font-size:34rpx;
+    padding-bottom:26rpx;
+}

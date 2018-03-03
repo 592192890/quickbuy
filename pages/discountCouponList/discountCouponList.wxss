@@ -1,0 +1,353 @@
+/* pages/my/discountCouponList.wxss */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.tab-group {
+  display: flex;
+  display: -webkit-flex;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #f6f6f6;
+  height: 80rpx;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.tab-item {
+  flex: 1;
+  margin: 25rpx 50rpx 15rpx 50rpx;
+  /*height:80rpx;*//*line-height:80rpx;*/
+  padding-bottom: 10rpx;
+  color: #666;
+}
+
+.tab-item.active {
+  border-bottom: 2px solid #fede5b;
+  color: #333;
+  margin-bottom: 13rpx;
+}
+
+.tab-content {
+  margin-top: 80rpx;
+}
+
+.scroll-view {
+  height: calc(100vh - 100rpx);
+}
+
+swiper {
+  height: calc(100vh - 100rpx);
+}
+
+.noData, .noMoreData, .loading {
+  display: none;
+  text-align: center;
+  height: 40rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+
+.noMoreData, .loading {
+  padding-top: 20rpx;
+}
+
+.noData.show, .noMoreData.show, .loading.show {
+  display: block;
+}
+
+.noData.show {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  /* {{noData?'show':''}} *//* position:absolute;   
+    top:220rpx;  
+    left:170rpx;
+    align-items: center;  *//* justify-content:space-between; */
+  flex-direction: column;
+}
+
+.noData-show-image {
+  /* margin-left: 187.5rpx; */
+  width: 375rpx;
+  height: 375rpx;
+}
+
+.noData-show-text {
+  /* margin-left: 187.5rpx; */
+  margin-top: 45rpx;
+  text-align: center;
+  /* display: inline-block; */
+}
+
+.noMoreData .label {
+  display: inline-block;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.noMoreData .line {
+  display: inline-block;
+  width: 120rpx;
+  height: 0px;
+  border-top: 1rpx solid #efefef;
+  margin-bottom: 7rpx;
+}
+
+.swiper-tab {
+  width: 100%;
+  border: 1rpx solid black;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.swiper-tab-list {
+  font-size: 40rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777;
+}
+
+.coupon_item {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.coupon_bg {
+  top: 0rpx;
+  float: left;
+  /* position: absolute; */
+  width: 720rpx;
+  height: 210rpx;
+  z-index: 0;
+  /* border: 1rpx solid blue; */
+}
+
+.status_image {
+  position: absolute;
+  z-index: 1000;
+  width: 128rpx;
+  height: 100rpx;
+  left: 374rpx;
+  bottom: 0rpx;
+}
+
+.topContent {
+  display: flex;
+  z-index: 100;
+  top: 10rpx;
+  left: 30rpx;
+  /* float: left; */
+  position: absolute;
+  /* width: 100vw;
+    height: 250rpx; */
+  width: 690rpx;
+  height: 190rpx;
+  /* background-size: 100% 100%; *//* background-repeat: no-repeat; *//* background-position:center; *//* background-image:  *//* border: 1rpx solid red;   */
+}
+
+.coupon_left {
+  display: flex;
+  flex-direction: column;
+  margin: 30rpx 12rpx 30rpx 28rpx;
+  width: 450rpx;
+  height: 130rpx;
+  /* margin-top: 8rpx; *//* justify-content: center; *//* border: 1rpx solid black;  */
+}
+
+.coupon_right .symbol {
+  font-size: 28rpx;
+}
+
+.coupon_right .money {
+  font-size: 50rpx;
+}
+
+.coupon_left .info {
+  /* color: white; */
+  display: block-inline;
+  flex-direction: row;
+  top: 0rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+  height: 54rpx;
+  /* width: 320rpx; */
+  width: 460rpx;
+  color: #333;
+}
+
+.coupon_left .code {
+  /* #9D9E9F */
+  height: 54rpx;
+  top: 0rpx;
+  width: 140rpx;
+  right: 10rpx;
+  padding-right: 5rpx;
+  padding-left: 5rpx;
+  color: #333;
+  font-size: 26rpx;
+  border: 1px solid #666;
+  border-radius: 5rpx;
+}
+
+.coupon_left .deadline {
+  color: #999;
+  margin-top: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 24rpx;
+  height: 32rpx;
+}
+
+.coupon_qr {
+  width: 98rpx;
+  height: 98rpx;
+  bottom: 15rpx;
+}
+
+.uses_btn {
+  display: flex;
+  background-color: white;
+  width: 120rpx;
+  height: 42rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 21rpx;
+  margin-top: 14rpx;
+}
+
+.uses_btn text {
+  color: #f76666;
+  font-size: 22rpx;
+}
+
+.coupon_right {
+  display: flex;
+  flex-direction: column;
+  width: 195rpx;
+  height: 190rpx;
+  top: 0rpx;
+  margin-left: 15rpx;
+  align-items: center;
+  justify-content: center;
+  /* border: 1rpx solid blue;    */
+}
+
+.bottomContent {
+  display: flex;
+  margin-top: -13rpx;
+  width: 630rpx;
+  align-items: center;
+  /* z-index:-1;  *//* justify-content: center; *//* height: 80rpx; *//* margin-top: -28rpx; */
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  background-color: white;
+  /* border: 1rpx solid black;    */
+}
+
+.coupon_detail_show_content {
+  display: flex;
+  /* flex: left;
+    text-align: left; */
+  top: 10rpx;
+  right: 50rpx;
+  bottom: 20rpx;
+  left: 20rpx;
+  /* margin: 10rpx,20rpx,20rpx,20rpx; *//* width: 590rpx; *//* font-size: 26rpx; *//* border: 1rpx solid blue;    */
+}
+
+.coupon_detail_head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.di_row {
+  flex-direction: row;
+}
+
+.di_column {
+  flex-direction: column;
+}
+
+.coupon_detail_head_text {
+  font-size: 26rpx;
+  color: #555;
+  width: 630rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+  /* border: 1rpx solid red;    */
+}
+
+.coupon_detail_head_arrow {
+  float: right;
+  right: 0rpx;
+  bottom: 0rpx;
+  width: 32rpx;
+  height: 32rpx;
+  z-index: 1000;
+  /* border: 1rpx solid blue;    */
+}
+
+.coupon_detail_head_arrow:after {
+  content: "\e799";
+  color: #555;
+  font-size: 25rpx;
+}
+
+.coupon_detail_show_body {
+  display: flex;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  /* background-color: wheat; */
+}
+
+.coupon_detail_show_arrow {
+  /* background-color: red; */
+  margin-bottom: 14rpx;
+}
+
+.coupon_detail_show_arrow::after {
+  content: "\e796";
+  color: #555;
+  font-size: 25rpx;
+}
+
+.loading {
+  padding: 10rpx;
+  text-align: center;
+}
+
+.loading:before {
+  display: inline-block;
+  margin-right: 5rpx;
+  vertical-align: middle;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+
+.loading.complete:before {
+  display: none;
+}

@@ -1,0 +1,39 @@
+<template name="order">
+    <view class="order-body">
+        <view class="header">
+            <image src="/images/shop.png"></image>
+            <view class="left">{{shopName}}</view>
+            <view class="right">{{createTime}}</view>
+        </view>
+        <view class="item" bindtap="goOrderDetail" data-id="{{orderId}}">
+            <view class="product-des">
+                <view class="product-name">
+                    <text class="mark" wx:if="{{orderType==1}}">鲜</text>
+                    <text>{{items.name}}</text>
+                </view>
+                <view class="number">共{{productNum}}件商品</view>
+                <view class="total-price">
+                    <text class="left">总计：</text>
+                    <text class="right">¥{{payAmount}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="action">
+            <view class="status" wx:if="{{orderType==0&&orderStatus=='finish'}}">交易完成</view>
+            <view class="status" wx:if="{{orderType==1&&receipted==1&&orderStatus=='finish'}}">交易完成</view>
+            <view class="status" wx:if="{{orderType==1&&receipted==0&&orderStatus=='finish'}}">鲜食演义待收货</view>
+            <view class="status" wx:if="{{orderStatus=='dead'}}">交易关闭</view>
+            <view class="status" wx:if="{{orderStatus=='active'&&payStatus=='0'}}">待付款</view>
+            <view class="status" wx:if="{{orderStatus=='active'&&payStatus=='1'&&checkStatus=='0'}}">待核检</view>
+            <view class="status" wx:if="{{orderStatus=='canceling'}}">退款中</view>
+
+            <view class="btn" wx:if="{{orderType==0&&(orderStatus=='finish'||orderStatus=='dead')}}" bindtap="deleteOrder" data-id="{{orderId}}" data-selected="{{selected}}">删除订单</view>
+            <view class="btn" wx:if="{{orderType==1&&receipted==1&&orderStatus=='finish'}}" bindtap="deleteOrder" data-id="{{orderId}}" data-selected="{{selected}}">删除订单</view>
+            <view class="btn" wx:if="{{orderType==1&&orderStatus=='dead'}}" bindtap="deleteOrder" data-id="{{orderId}}" data-selected="{{selected}}">删除订单</view>
+            <view class="pay btn" wx:if="{{orderType==1&&receipted==0&&orderStatus=='finish'}}" bindtap="receiveOrder" data-id="{{orderId}}" data-selected="{{selected}}">确认收货</view>
+            <view class="pay btn" wx:if="{{orderStatus=='active'&&payStatus=='0'}}"  bindtap="payOrder" data-type="{{orderType}}" data-id="{{orderId}}" data-selected="{{selected}}">立即付款</view>
+            <!--<view class="btn" wx:if="{{orderStatus=='active'&&payStatus=='1'&&checkStatus=='0'}}"  bindtap="applyRefund" data-id="{{orderId}}" data-selected="{{selected}}">申请退款</view>-->
+            <view class="cancel btn" wx:if="{{orderStatus=='active'&&payStatus=='0'}}"  bindtap="cancelOrder" data-id="{{orderId}}" data-selected="{{selected}}">取消订单</view>
+        </view>
+    </view>
+</template>

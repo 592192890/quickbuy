@@ -1,0 +1,82 @@
+<!--pages/submit-order/submit-order.wxml-->
+
+<import src="/template/select-coupon-dialog.wxml" />
+
+<view class="container">
+  <view class="submit-tips {{isNew?'show':''}}">
+    <image class="tips-img" src="/images/submit-tips.png"></image>
+    <text class="tips">亲爱的客官~鲜食演义商品<text class="color">支付成功后不支持退款</text>，请仔细确认金额和商品详情！如有特殊情况请前往服务台咨询。</text>
+  </view>
+  <view class="submit-body">
+    <view class="header">
+      <image class="img" src="/images/shop.png"></image>
+      <view class="left">{{storeName}}</view>
+      <view class="right">共{{productNumber}}件</view>
+    </view>
+    <scroll-view class="scrollBg" scroll-y="true" bindscroll="onCartItemScroll">
+      <block wx:for="{{submitOrder.items}}" wx:key="{{item.barcode}}" >
+        <view class="item">
+          <view class="product-des">
+            <view class="product-name">
+              <text class="mark" wx:if="{{isNew}}">鲜</text>
+              <text>{{item.productName}}</text>
+            </view>
+            <view class="weight {{item.weight=='0'||!item.weight?'hidden':''}}">{{item.weight}}kg</view>
+            <view class="price">¥{{item.price}}</view>
+          </view>
+          <view class="sum-price">
+            <view class="number">×{{item.quantity=='0'||!item.quantity?'1':item.quantity}}</view>
+            <view class="sum">¥{{item.amount}}</view>
+          </view>
+        </view>
+
+      </block>
+
+
+
+
+
+      <view class="coupon" bindtap='selectCoupon'>
+
+        <text wx:if="{{hasCoupon}}" class='coupon-user'>使用优惠券</text>
+
+        <text wx:if="{{!hasCoupon}}" class='coupon-empty'>暂无可用优惠券</text>
+
+        <text wx:if="{{hasCoupon}}" class='coupon-info'>已使用{{userCount}}张,抵扣<text style='color:red;'>{{discount}}</text>元</text>
+
+        <image src='/images/arrow-r.png' class='arrow' style='height:40rpx;width:40rpx;' />
+      </view>
+
+      <view class="space" style="height:100rpx;width:100%;background-color:#f6f6f6"></view>
+
+    </scroll-view>
+
+  </view>
+  <view class="footer">
+
+    <view class='main-amount'>
+      <text class="payAmountName">合计：</text>
+      <text class="payAmountMoney">¥{{submitOrder.payAmount}}</text>
+    </view>
+
+
+    <view class='detail-amount'>
+
+      <view class='total-amount'>
+        <text class="totalName">总额：</text>
+        <text class="totalMoney">¥{{submitOrder.totalAmount}}</text>
+      </view>
+
+      <view class='discount-amount' style='margin-left:30rpx;'>
+        <text class="totalName">优惠：</text>
+        <text class="totalMoney">¥{{submitOrder.discountAmount}}</text>
+      </view>
+
+    </view>
+    <form report-submit='true' bindsubmit='submitOrder'>
+      <button class="sum" formType='submit' hover-class="none">提交订单</button>
+    </form>
+  </view>
+</view>
+
+<template is="dialog" data="{{...submitOrder}}"></template>

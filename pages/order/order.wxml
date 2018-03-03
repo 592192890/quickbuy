@@ -1,0 +1,73 @@
+<!--pages/order/order.wxml-->
+<import src="/template/order-tpl.wxml" />
+<view class="container">
+
+  <view class="tab-group">
+    <view class="tab-item {{selected=='1'?'active':''}}" data-id="1" bindtap="toggleOrder">全部订单</view>
+    <view class="tab-item {{selected=='2'?'active':''}}" data-id="2" bindtap="toggleOrder">待付款</view>
+    <view class="tab-item {{selected=='3'?'active':''}}" data-id="3" bindtap="toggleOrder">待核检</view>
+  </view>
+  <view class="tab-content">
+    <view class="noData {{noData?'show':''}}">
+      <view wx:if="{{selected=='1'}}">
+        <text>您没有任何订单</text>
+      </view>
+      <view wx:elif="{{selected=='2'}}">
+        <text>您没有待付款订单</text>
+      </view>
+      <view wx:else>
+        <text>您没有待核检订单</text>
+      </view>
+    </view>
+    <swiper current="{{currentTab}}" duration="500" bindchange="swiperChange">
+      <swiper-item>
+        <view class="content-item">
+          <scroll-view class="scroll-view" scroll-top="{{toTop}}" scroll-y="true" scroll-with-animation="true" bindscrolltolower="loadMore" data-id='1'>
+            <block wx:for="{{allOrderList}}" wx:key="{{item.orderId}}">
+              <template is="order" data="{{...item,selected}}"></template>
+            </block>
+            <view class="loading {{loading?'show':''}}">加载中...</view>
+            <view class="noMoreData {{noMoreData?'show':''}}">
+              <text class="line"></text>
+              <text class="label">没有更多数据了</text>
+              <text class="line"></text>
+            </view>
+          </scroll-view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="content-item">
+          <scroll-view class="scroll-view" scroll-top="{{toTop}}" scroll-y="true" scroll-with-animation="true" bindscrolltolower="loadMore" data-id='2'>
+            <block wx:for="{{unpayOrderList}}" wx:key="{{item.orderId}}">
+              <template is="order" data="{{...item,selected}}"></template>
+            </block>
+            <view class="loading {{loading?'show':''}}">加载中...</view>
+            <view class="noMoreData {{noMoreData?'show':''}}">
+              <text class="line"></text>
+              <text class="label">没有更多数据了</text>
+              <text class="line"></text>
+            </view>
+          </scroll-view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="content-item">
+          <scroll-view class="scroll-view" scroll-top="{{toTop}}" scroll-y="true" scroll-with-animation="true" bindscrolltolower="loadMore" data-id='3'>
+            <block wx:for="{{uncheckOrderList}}" wx:key="{{item.orderId}}">
+              <template is="order" data="{{...item,selected}}"></template>
+            </block>
+            <view class="loading {{loading?'show':''}}">加载中...</view>
+            <view class="noMoreData {{noMoreData?'show':''}}">
+              <text class="line"></text>
+              <text class="label">没有更多数据了</text>
+              <text class="line"></text>
+            </view>
+          </scroll-view>
+        </view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+
+</view>

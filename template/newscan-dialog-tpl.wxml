@@ -1,0 +1,25 @@
+<template name="dialog">
+    <view class="ui-cover-layer {{isShow?'active':''}}"></view>
+    <view class="ui-dialog {{isShow?'active':''}}">
+        <view ></view>
+        <view class="ui-header">扫描成功</view>
+        <view class="ui-content">
+            <view class="name">
+                <view style="display:inline-block;width:100%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{productName}}</view>
+                <view style="display:inline-block;width:100rpx;" wx:if="{{weight}}">{{weight}}kg</view>
+            </view>
+            <view class="price">
+                <text style="color:#999999;font-size:26rpx">售价：</text>
+                <text style="color:#f95d5b;font-size:32rpx">¥{{amount}}</text>
+            </view>
+            <view class="calculate">
+                    <text class="inline minus iconfont {{modqty=='Y'?'':'disable'}}" bindtap="minus" data-isweight="{{modqty}}"></text>
+                    <input class="inline number" bindblur="changeNumber" value="{{quantity}}" data-isweight="{{modqty}}"/>
+                    <text class="inline add iconfont {{modqty=='Y'?'':'disable'}}" bindtap="add" data-index="{{index}}" data-isweight="{{modqty}}"></text>
+                </view>
+        </view>
+        <view class="ui-footer">
+            <view bindtap="cancelCart" class="cancel">取消</view><view bindtap="addToCart">加入购物车</view>
+        </view>
+    </view>
+</template>

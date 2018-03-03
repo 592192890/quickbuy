@@ -1,0 +1,148 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+    <block>
+        <view class="toggole-shop">
+            <view class="arrow" bindtap="goToggleShop" wx:if="{{!hasUncheck}}">
+                <image src="/images/bottom-arrow.png"></image>
+            </view>
+        </view>
+        <view class="package-group">
+            <view class="package {{selectedPakageIndex==1?'active':''}}" data-id="1" data-barcode="{{packages.small.barcode}}" bindtap="selectPackage">
+                <text class="name">{{packages.small.name}}</text>
+                <text class="price">
+                    <text style="margin-right:2rpx;display:inline-block">¥</text>
+                    <text>{{packages.small.price}}</text>
+                </text>
+                <!--<view class="tick {{selectedPakageIndex==1?'active':''}}"></view>-->
+            </view>
+            <view class="package {{selectedPakageIndex==2?'active':''}}" data-id="2" data-barcode="{{packages.mid.barcode}}" bindtap="selectPackage">
+                <text class="name">{{packages.mid.name}}</text>
+                <text class="price">
+                    <text style="margin-right:2rpx;display:inline-block">¥</text>
+                    <text>{{packages.mid.price}}</text>
+                </text>
+                <!--<view class="tick {{selectedPakageIndex==2?'active':''}}"></view>-->
+            </view>
+            <view class="package {{selectedPakageIndex==3?'active':''}}" data-id="3" data-barcode="{{packages.max.barcode}}" bindtap="selectPackage">
+                <text class="name">{{packages.max.name}}</text>
+                <text class="price">
+                    <text style="margin-right:2rpx;display:inline-block">¥</text>
+                    <text>{{packages.max.price}}</text>
+                </text>
+                <!--<view class="tick {{selectedPakageIndex==3?'active':''}}"></view>-->
+            </view>
+
+        </view>
+        <!--no goods in cart-->
+        <view class="default-tips" wx:if="{{productList.length==0}}">
+            <view class="tip-message">
+                <text>
+                    扫码购单次可支持购买<text class="number">{{maxSku}}</text>种以内商品
+                </text>
+                <text>（金卡以上会员任意种数，鲜食演义商品不限件数）</text>
+
+            </view>
+            <view class="tip-img">
+                <view class="icon scan" bindtap="goScan">
+                    <view class="show scan">
+                        <image src="/images/cart-scan.png"></image>
+                    </view>
+                </view>
+                <view class="arrow">
+                    <image src="/images/arrow.png"></image>
+                </view>
+                <view class="icon pay">
+                    <view class="show pay">
+                        <image src="/images/cart-pay.png"></image>
+                    </view>
+                </view>
+                <view class="arrow">
+                    <image src="/images/arrow.png"></image>
+                </view>
+                <view class="icon check">
+                    <view class="show check">
+                        <image src="/images/cart-check.png"></image>
+                    </view>
+                </view>
+            </view>
+
+            <view class="tip-description">
+                <view class="item">
+                    <view>扫一扫</view>
+                    <view>商品条形码</view>
+                </view>
+                <view class="item">
+                    <view>线上支付</view>
+                    <view>轻松付款</view>
+                </view>
+                <view class="item">
+                    <view>自助收银机</view>
+                    <view>核检商品离开</view>
+                </view>
+            </view>
+        </view>
+        <!--there are goods in cart-->
+        <scroll-view class="order-list" scroll-y="true" wx:if="{{productList.length>0}}">
+            <block wx:for="{{productList}}" wx:key="item.barcode">
+                <view class="content">
+                    <view class="item {{item.isTouchMove?'active':''}}" data-index="{{index}}" bindtouchstart="drawStart" bindtouchmove="drawMove" id="{{item.barcode}}">
+                        <view class="radio">
+                            <!--<radio class="iconfont" value="value" style="width:38rpx;height:38rpx;" checked="{{item.isCheck}}" bindtap="toggleItemSelect" color="#333333" data-index="{{index}}"/>-->
+                            <text class="new-radio iconfont {{item.isCheck?'checked':''}}" bindtap="toggleItemSelect" data-index="{{index}}"></text>
+                        </view>
+                        <view>
+                             <view wx:if="{{item.productImg.length >0}}"><image class="product-img-view" src="{{item.productImg}}" wx:if="{{item.productImg}}" mode="aspectFill"></image></view>
+                             <view wx:elif="{{item.isCartBag}}"><image class="product-img-view" src="/images/cart_bag.png" mode="aspectFill"></image></view>
+                             <view wx:else><image class="product-img-view" src="/images/product_default.png" mode="aspectFill"></image></view>
+                        </view>
+                        <view class="product-des">
+                            <view class="product-name {{item.isCheck?'checked':''}}">
+                                <text class="name">
+                                    <text class="mark" wx:if="{{item.isNew}}">鲜</text>{{item.productName}}
+                                </text>
+                            </view>
+                            <view class="info">
+                                <view class='sum-view'>
+                                    <text class="sum">¥{{item.amount}}</text>
+                                </view>
+                                <view class="calculate">
+                                    <text class="inline minus iconfont {{item.modqty=='Y'?'':'disable'}}" catchtap="minus" data-isweight="{{item.modqty}}" data-index="{{index}}"></text>
+                                    <input type="number" class="inline number" bindblur="changeNumber" value="{{item.quantity?item.quantity:'1'}}" data-isweight="{{item.modqty}}" data-index="{{index}}"/>
+                                    <text class="inline add iconfont {{item.modqty=='Y'?'':'disable'}}" catchtap="add" data-isweight="{{item.modqty}}" data-index="{{index}}"></text>
+                                </view>
+                            </view>
+
+                        </view>
+
+                    </view>
+                    <view class="delete {{item.isTouchMove?'active':''}}"  data-barcode="{{item.barcode}}" data-serialnumber="{{item.serialNumber}}" catchtap="delItem">
+                        <text class="delete-label">删除</text>
+                    </view>
+                </view>
+
+            </block>
+            <view class="noMoreData {{noMoreData?'show':''}}">
+                <text class="line"></text>
+                <text class="label">买买买，我是有底线的</text>
+                <text class="line"></text>
+            </view>
+            <view class="space" style="height:100rpx;width:100%;background-color:#f6f6f6"></view>
+        </scroll-view>
+        <view class="cart-footer">
+
+            <view style="display:inline-block" class="radio" wx:if="{{productList.length>0}}">
+                <!--<radio value="全选" bindtap="toggleAllSelect" class="all-select iconfont {{allSelected?'checked':''}}" checked="{{allSelected}}"  color="#333333"/>-->
+                <text class="all-select new-radio iconfont {{allSelected?'checked':''}}" bindtap="toggleAllSelect"></text>
+                <text class="all-select-label">全选</text>
+            </view>
+
+            <view style="display:inline-block" class="name">
+                <text>合计：</text>
+                <text class="symbol">¥</text>
+                <text class="money">{{totalPrice}}</text>
+            </view>
+
+            <view class="sum" bindtap="goSubmitOrder">结算({{selectedProductCount}})</view>
+        </view>
+    </block>
+</view>

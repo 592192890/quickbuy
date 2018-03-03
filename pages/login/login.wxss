@@ -1,0 +1,125 @@
+/* pages/login/login.wxss */
+page{
+    background-color:#f6f6f6;
+}
+.login-body{
+    margin-top:20rpx;
+    background-color:#ffffff;
+}
+.login-content{
+    position:relative;
+    height:90rpx;
+    line-height:90rpx;
+    font-size:28rpx;
+}
+.login-content:first-child{
+    border-bottom:1px solid #efefef;
+}
+.login-content image{
+    width:38rpx;
+    height:38rpx;
+    float:left;
+    margin:26rpx 32rpx 0 32rpx;
+}
+.login-content input{
+    height:90rpx;
+    line-height:90rpx;
+}
+.login-content .code{
+    color:#cccccc;
+    position:absolute;
+    top:0px;
+    right:0px;
+    margin-right:20rpx;
+}
+.login-content .code.active{
+    color:#f95d5b;
+}
+.login-content .code.hide{
+    display: none;
+}
+.login-content .count-down{
+    display: none;
+    position:absolute;
+    top:0px;
+    right:0rpx;
+    margin-right:20rpx;
+    color:#f95d5b;
+    
+}
+.login-content .count-down.active{
+    display: block;
+}
+.password{
+    width:400rpx;
+}
+
+.login-submit{
+    margin:30rpx 30rpx 0 30rpx;
+    font-size:32rpx;
+    /*margin-top:30rpx;*/
+}
+.login-submit .login-button{
+    background-color:#d2d2d2;
+    color:#ffffff;
+    height:88rpx;
+    line-height:88rpx;
+    text-align:center;
+    font-size:32rpx;
+    border-radius:8rpx;
+}
+
+.login-submit .login-button.active{
+    background-color:#fede5b;
+    color:#000000;
+}
+
+.protocol{
+    margin-top:34rpx;
+    margin-bottom:60rpx;
+    margin-left:30rpx;
+    font-size:26rpx;
+    color:#666666;
+}
+.protocol .new-radio:after{
+    content:'\e616';
+    font-size:38rpx;
+    color:#cccccc;
+}
+.protocol .book{
+    color:#5ba2f9;
+}
+.protocol .new-radio{
+    margin-right:20rpx;
+}
+.protocol .new-radio.checked{
+    display: inline-block;
+
+}
+.protocol .new-radio.checked:after{
+    content:'\e617';
+    font-size:38rpx;
+    color:#666666;
+}
+.tips{
+    position:fixed;
+    bottom:20rpx;
+    width:100%;
+    color:#999999;
+    font-size:26rpx;
+    text-align:center;
+}
+
+.weixinbutton {
+  border-radius:8rpx;
+  font-size:32rpx;
+  /* width:80%; */
+  height:88rpx;
+  color:#ffda44;
+  margin-top:30rpx;
+  background-color:white;
+}
+
+.weixinbutton::after {
+  border:2rpx solid #ffda44;
+}

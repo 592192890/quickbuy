@@ -1,0 +1,27 @@
+<template name="identifyCode">
+    <view class="header">
+        <view class="img iconfont"></view>
+        <view class="result">{{processName}}</view>
+        <view class="tip">
+            请前往<text class="red">“自助收银台”</text>，使用<text class="red">自助收银机</text>扫描<text class="red">身份核检码</text>，支付当日有效，谢谢！
+        </view>
+    </view>
+    <view class="dottedLine">
+        <view class="left"></view>
+        <view class="dotted"></view>
+        <view class="right"></view>
+    </view>
+    <view class="identify-code">
+        <image src="https://ssl.yunhou.com/easygo/users/card_barcode_img?cardNo={{identifyCode}}" style="width:600rpx;height:200rpx;"></image>
+
+        <view class="img-name">身份核检码</view>
+
+        <view class="tip">
+            <text style="color:#333333">温馨提示：</text>身份核检码可在“<text style="color:#f95d5b">我的</text>”页面中查看
+        </view>
+    </view>
+
+    <view class="footer">
+        <view bindtap="goOrderDetail" data-id="{{orderId}}">查看订单</view>
+    </view>
+</template>

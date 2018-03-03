@@ -1,0 +1,6 @@
+/* pages/web/web.wxss */
+.web_view{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
